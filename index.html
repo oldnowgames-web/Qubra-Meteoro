@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quebra-Meteoro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="rockGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#d9a37c"/>
+        <stop offset="1" stop-color="#6b4030"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <main id="stage">
+    <header id="hud" hidden>
+      <div class="hud-left">
+        <span id="who"></span>
+        <span id="level"></span>
+      </div>
+      <div id="hearts" role="img"></div>
+      <div class="hud-right">
+        <span id="score">0</span>
+        <button id="mute" class="mini" type="button">Som ligado</button>
+        <button id="quit" class="mini" type="button">Sair</button>
+      </div>
+      <div id="levelbar"></div>
+    </header>
+
+    <div id="field"></div>
+    <div id="toast" aria-live="polite"></div>
+
+    <section id="menu" class="panel">
+      <div class="sheet two-col">
+        <div class="col">
+          <h1>Quebra-Meteoro</h1>
+          <p class="rules">Clique em cada meteoro antes que ele passe. Quanto mais rápido o clique, mais pontos. Cada meteoro que escapa custa uma vida, e a cada 20 segundos tudo fica mais rápido.</p>
+
+          <form id="addForm" autocomplete="off">
+            <label for="nameInput">Nome do jogador</label>
+            <div class="row">
+              <input id="nameInput" type="text" maxlength="16" placeholder="Digite um nome">
+              <button class="btn ghost" type="submit">Adicionar</button>
+            </div>
+          </form>
+
+          <p id="hint" class="empty">Adicione seu nome para jogar.</p>
+          <div id="chips" role="group" aria-label="Jogadores"></div>
+
+          <button id="play" class="btn" type="button" disabled>Jogar</button>
+        </div>
+
+        <div class="col">
+          <h2>Placar</h2>
+          <div id="rankMenu" class="rank"></div>
+          <button id="clear" class="btn ghost small" type="button">Limpar placar</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="over" class="panel" hidden>
+      <div class="sheet">
+        <h2 class="big">Fim de jogo</h2>
+        <p id="result"></p>
+        <div id="rankOver" class="rank"></div>
+        <div class="row end">
+          <button id="change" class="btn ghost" type="button">Trocar jogador</button>
+          <button id="again" class="btn" type="button">Jogar de novo</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
